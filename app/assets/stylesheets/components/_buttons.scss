@@ -16,12 +16,18 @@ a {
     border-color: rgba(240, 240, 220, 0.2);
     display: inline-block;
     box-shadow: 5px 10px 5px 0 rgba(66, 48, 48, 0.1);
+    a {
+      color: white;
+    }
+    .input {
+      color: white;
+    }
 }
 
 
 
 .red-button:hover{
-
+    color:white;
     padding: 10.5px;
     background-color: #ee4640e1;
 }

@@ -7,7 +7,7 @@ class PoolsController < ApplicationController
 
     def show
     end
-  
+
     def new
     @pool = Pool.new
   end
@@ -29,6 +29,6 @@ private
 
 
   def pool_params
-  params.require(:pool).permit(:name, :description, :capacity, :price, :has_lifeguard, :children_friendly, :jacuzzi_section, :climatization, :pool_side, :has_floats, :towels_include, :pet_friendly, :salted_water, :includes_bar)
+  params.require(:pool).permit(:name, :photos, :description, :capacity, :price, :has_lifeguard, :children_friendly, :jacuzzi_section, :climatization, :pool_side, :has_floats, :towels_include, :pet_friendly, :salted_water, :includes_bar)
   end
 end

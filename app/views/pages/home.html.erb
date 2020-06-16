@@ -1,16 +1,28 @@
-
-<div class="main-container">
-
+<!-- COMPLETE FORM AT TOP OF PAGE TO LOOK FOR POOLS -->
+<div class="container-small">
+<form accept-charset="UTF-8" action="/pools" >
+  <div class="row in-line-search">
+    <div class="col search-input">
+      <input type="text" class="form-control" placeholder="Location">
+    </div>
+    <div class="col search-input">
+      <input type="number" class="form-control" placeholder="Number of swimmers">
+    </div>
+   <button type="submit" class="red-button">Search</button>
+  </div>
+</form>
 </div>
 
-
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path('pool_banner.jpg')%>)">
+<div class="main-container">
   <div class="main-container" >
     <h1> Rent a pool <strong> and take a dip</strong></h1>
     <p> Have a mini vacation and relax </p>
-    <a class="red-button" href="#"> Find a pool</a>
+    <a class="red-button" href="/pools">Discover our pools</a>
   </div>
 </div>
+</div>
+
 
 <div class='main-container'>
 
@@ -18,18 +30,16 @@
 <a href = # >Find a pool</a>
 </div> -->
 
+
 <div class='cards'>
-  <div class="cards" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('pool1')%>)">
-    Pool1
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('pool1')%>)">
+    <h2>Chill in the tropics</h2>
   </div>
-   <div class="cards" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('pool2')%>)">
-    Pool2
+   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('pool2')%>)">
+    <h2>Group outings</h2>
   </div>
-   <div class="cards" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('pool3')%>)">
-    Pool3
-  </div>
-   <div class="cards" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('pool4')%>)">
-    Pool4
+   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('pool3')%>)">
+    <h2>Urban dipping</h2>
   </div>
 
 </div>
@@ -37,4 +47,4 @@
 
 </div>
 
-</div>
+

@@ -1,0 +1,7 @@
+.in-line-search {
+  display: flex;
+  align-items: center;
+  .search-input {
+    flex: grow;
+  }
+}

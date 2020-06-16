@@ -1,0 +1,33 @@
+<div class="container mt-5">
+
+  <h2 class= "ml-5">Submit your pool</h2>
+  <div class="main-container mt-4">
+    <div class= 'row'>
+      <div class="col-6 form-pool">
+
+        <%= simple_form_for(@pool) do |f| %>
+
+          <%= f.input :name %>
+          <%= f.input :description%>
+          <%= f.input :capacity, as: :numeric%>
+          <%= f.input :price, as: :numeric%>
+          <%= f.input :photos, as: :file %>
+          <div class= "checkbox mt-3">
+            <%= f.input :has_lifeguard%>
+            <%= f.input :children_friendly%>
+            <%= f.input :jacuzzi_section%>
+            <%= f.input :climatization%>
+            <%= f.input :pool_side%>
+            <%= f.input :has_floats%>
+            <%= f.input :towels_include%>
+            <%= f.input :pet_friendly%>
+            <%= f.input :salted_water%>
+            <%= f.input :includes_bar%>
+          </div>
+        <%= f.submit class: 'btn btn-primary btn-lg btn-block' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

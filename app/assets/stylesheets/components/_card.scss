@@ -1,17 +1,70 @@
+// cards for homepage - samples
+
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   height: 175px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-  background-position: center;
-  color: white;
   position: relative;
-  border-radius: 5px;
   font-size: 24px;
   justify-content: center;
   font-weight: bold;
-  text-align: center;
+
+
+ .card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  color: white;
+  border-radius: 5px;
+ }
+
+
 }
+
+// cards for pools for search results
+
+.card-pool {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-pool > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-pool h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-pool p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-pool .card-pool-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
 

@@ -1,15 +1,17 @@
 .cards {
   display: grid;
-
-
-
-  .card {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
   height: 175px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
   color: white;
   position: relative;
-  }
+  border-radius: 5px;
+  font-size: 24px;
+  justify-content: center;
+  font-weight: bold;
+  text-align: center;
 }
 

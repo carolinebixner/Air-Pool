@@ -16,11 +16,8 @@
 
   <body>
 
-    <% if current_user %>
-      <%= render 'shared/navbar_logged' %>
-    <% else %>
-      <%= render 'shared/navbar_logged' %>
-    <% end %>
+
+    <%= render 'shared/navbar_logged' %>
     <%= yield %>
     <%= render 'shared/footer' %>
   </body>

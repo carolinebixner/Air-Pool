@@ -9,9 +9,10 @@
 
           <%= f.input :name %>
           <%= f.input :description%>
+          <%= f.association :location %>
           <%= f.input :capacity, as: :numeric%>
           <%= f.input :price, as: :numeric%>
-          <%= f.input :photos, as: :file %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true }%>
           <div class= "checkbox mt-3">
             <%= f.input :has_lifeguard%>
             <%= f.input :children_friendly%>

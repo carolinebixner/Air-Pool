@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:index, :show, :edit, :update]
   resources :reviews, except: [:new, :create]
-  get 'pages/dashboard', to: 'pages#dashboard', as: :dashboard
+  get '/dashboard', to: 'pages#dashboard', as: :dashboard
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

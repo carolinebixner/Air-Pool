@@ -3,8 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 
+
 #for geocoding & map
 gem 'geocoder'
+
+
+gem 'faker'
 
 gem 'cloudinary', '~> 1.12.0'
 gem 'devise'

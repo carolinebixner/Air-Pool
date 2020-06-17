@@ -14,9 +14,11 @@
 <div class="container">
   <div class="row">
     <div class="col-6">
-    <img src="https://images.unsplash.com/photo-1562778612-e1e0cda9915c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80" alt="pool"  class= "img-1">
+      <% pic = @pool.photos.first  %>
+      <%= cl_image_tag pic.key, height: 400, width: 450, crop: :fill %>
     </div>
     <div class="col-6">
+
         <div class="row">
           <div class="col-6">
             <img src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="pool" class="img-2">
@@ -30,6 +32,14 @@
           <div class="col-6 img-mg">
             <img src="https://images.unsplash.com/photo-1523301343968-6a6ebf63c672?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="pool" class="img-2">
           </div>
+
+        <div class="row img-up">
+          <% @pool.photos.drop(1).each do |photo|%>
+            <div class="col-6 img-mg">
+              <%= cl_image_tag photo.key, height: 182, width: 200, crop: :fill %>
+            </div>
+          <% end  %>
+
         </div>
     </div>
   </div>
@@ -40,17 +50,74 @@
 <br>
 
 <div class="mg">
-<h2>About this pool</h2>
+  <h2>About this pool</h2>
+
+
+  <br>
+  <br>
+  <br>
+
+
+<br>
+<br>
+<br>
+
+
+  <p><%= @pool.description %></p>
+
+  <br>
+  <br>
+  <br>
+
+  <h3>Location:</h3>
+
+  <br>
+  <br>
+
+  <p><%= @pool.location %></p>
+
+  <br>
+  <br>
+
+  <h3>Services:</h3>
+  <br>
+  <br>
+
+  <div class="row">
+    <div class="col-3 right">
+      <p>Has lifeguard</p>
+      <p>Children friendly</p>
+      <p>Jacuzzi section</p>
+      <p>Climatization</p>
+      <p>Pool slide</p>
+    </div>
+        <div class="col-3 left">
+      <% questions_l = [@pool.has_lifeguard?, @pool.children_friendly?, @pool.jacuzzi_section?, @pool.climatization?, @pool.pool_side?]  %>
+      <% responses = questions_l.map do |question| %>
+        <% if question == true  %>
+         <p><i class="fa fa-check green" aria-hidden="true"></i></p>
+        <% else %>
+       <p>  <i class="fa fa-times red" aria-hidden="true"></i></p>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-3 right block-left">
+      <p>Has floats</p>
+      <p>Towels include</p>
+      <p>Pet friendly</p>
+      <p>Salted water</p>
+      <p>Includes bar</p>
+    </div>
+        <div class="col-3 left">
+      <% questions_r = [@pool.has_floats?, @pool.towels_include?, @pool.pet_friendly?, @pool.salted_water?, @pool.includes_bar?] %>
+          <% responses = questions_r.map do |question| %>
+        <% if question == true  %>
+          <p><i class="fa fa-check green" aria-hidden="true"></i></p>
+        <% else %>
+          <p>  <i class="fa fa-times red" aria-hidden="true"></i></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
-<br>
-<br>
-<br>
-
-<div class="mg">
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</div>
-
-<br>
-<br>
-<br>

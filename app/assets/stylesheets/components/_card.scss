@@ -42,6 +42,10 @@
   margin-top: 40px;
 }
 
+.img-up {
+  margin-top: -41px;
+}
+
 
 .card-pool {
   overflow: hidden;
@@ -83,7 +87,6 @@
   width: 40px;
 }
 
-
 @media (max-width: 1020px) {
   .cards {
     grid-template-columns: 1fr 1fr;
@@ -95,3 +98,24 @@
     grid-template-columns: 1fr;
   }
 }
+
+.red{
+  color: red;
+}
+
+.green{
+  color:green;
+}
+
+.right {
+  margin-right: -55px;
+}
+
+.left {
+  margin-left: -55px;
+}
+
+.block-left {
+  margin-left: -60px;
+}
+

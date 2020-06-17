@@ -3,6 +3,7 @@
 <br>
 <div class="mg">
     <h2><%= @pool.name %></h2>
+
 </div>
 
 
@@ -17,16 +18,20 @@
       <%= cl_image_tag pic.key, height: 400, width: 450, crop: :fill %>
     </div>
     <div class="col-6">
-        <div class="row img-up">
-          <% @pool.photos.drop(1).each do |photo|%>
-            <div class="col-6 img-mg">
-              <%= cl_image_tag photo.key, height: 182, width: 200, crop: :fill %>
-            </div>
-          <% end  %>
-        </div>
+
+
+      <div class="row img-up">
+        <% @pool.photos.drop(1).each do |photo|%>
+          <div class="col-6 img-mg">
+            <%= cl_image_tag photo.key, height: 182, width: 200, crop: :fill %>
+          </div>
+        <% end  %>
+
+      </div>
     </div>
   </div>
 </div>
+
 
 <br>
 <br>
@@ -39,6 +44,11 @@
   <br>
   <br>
   <br>
+
+
+<br>
+<br>
+<br>
 
 
   <p><%= @pool.description %></p>
@@ -73,7 +83,7 @@
       <% questions_l = [@pool.has_lifeguard?, @pool.children_friendly?, @pool.jacuzzi_section?, @pool.climatization?, @pool.pool_side?]  %>
       <% responses = questions_l.map do |question| %>
         <% if question == true  %>
-         <p><i class="fa fa-check green" aria-hidden="true"></i></p> 
+         <p><i class="fa fa-check green" aria-hidden="true"></i></p>
         <% else %>
        <p>  <i class="fa fa-times red" aria-hidden="true"></i></p>
         <% end %>
@@ -90,7 +100,7 @@
       <% questions_r = [@pool.has_floats?, @pool.towels_include?, @pool.pet_friendly?, @pool.salted_water?, @pool.includes_bar?] %>
           <% responses = questions_r.map do |question| %>
         <% if question == true  %>
-          <p><i class="fa fa-check green" aria-hidden="true"></i></p> 
+          <p><i class="fa fa-check green" aria-hidden="true"></i></p>
         <% else %>
           <p>  <i class="fa fa-times red" aria-hidden="true"></i></p>
         <% end %>
@@ -98,3 +108,4 @@
     </div>
   </div>
 </div>
+

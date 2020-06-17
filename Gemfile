@@ -2,7 +2,14 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
+
+
+#for geocoding & map
+gem 'geocoder'
+
+
 gem 'faker'
+
 gem 'cloudinary', '~> 1.12.0'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

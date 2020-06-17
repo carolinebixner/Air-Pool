@@ -17,6 +17,7 @@ class PoolsController < ApplicationController
         }]
     end
 
+
     def new
     @pool = Pool.new
     end

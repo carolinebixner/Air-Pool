@@ -2,21 +2,21 @@ class PoolsController < ApplicationController
     before_action :set_pool, only: [:show, :edit, :update, :destroy]
 
     def index
-      # @pools = Pool.all
+      @pools = Pool.all
 
-      @pools = Pool.geocoded
-      @markers = @pools.map do |pool|
-        {
-          lat: pool.latitude,
-          lng: pool.longitude,
-          infoWindow: render_to_string(partial: "info_window", locals: { pool: pool }),
-          image_url: helpers.asset_url('geo_pool.png')
-        }
-      end
+
     end
 
     def show
+      @markers = [
+        {
+          lat: @pool.latitude,
+          lng: @pool.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { pool: @pool }),
+          image_url: helpers.asset_url('geo_pool.png')
+        }]
     end
+
 
     def new
     @pool = Pool.new

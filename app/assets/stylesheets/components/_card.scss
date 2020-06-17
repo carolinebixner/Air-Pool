@@ -131,7 +131,7 @@
 .card-trip-image{
   height:200px;
   background-size:cover;
-
+}
 
 @media (max-width: 1020px) {
   .cards {
@@ -167,5 +167,14 @@
 }
 
 .center {
-  margin-left: 150px
+  margin-left: 150px;
+}
+
+.black-letters {
+  color: black;
+}
+
+.black-letters :hover {
+  color: black;
+  text-decoration: none;
 }

@@ -27,12 +27,12 @@
 
 .img-1 {
   width: 400px;
-  height: 400px; 
+  height: 400px;
 }
 
 .img-2 {
   width: 250px;
-  height: 180px; 
+  height: 180px;
 }
 
 .img-mg {
@@ -80,4 +80,64 @@
   width: 40px;
 }
 
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+// .card-flex-item-image{
+//   flex-grow: 100%;
+// }
+// // .card-flex-pool{
+// // display:flex;
+// // flex-direction: column;
+
+// // }
+// .card-pool-text{
+
+//   padding: 16px;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: left;
+//    font-size: 12px;
+//   opacity: .7;
+//   margin: 0;
+.card-trip-2 {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.card-trip-2 > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+.card-trip-2 h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+.card-trip-2 p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+.card-trip-2 .card-trip-infos-2 {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+.card-trip-infos-2 .card-trip-user-2 {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+.card-trip-image{
+  height:200px;
+  background-size:cover;
+
+}
 

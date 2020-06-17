@@ -2,10 +2,9 @@ class PoolsController < ApplicationController
     before_action :set_pool, only: [:show, :edit, :update, :destroy]
 
     def index
-      @pools = Pool.all
+      # @pools = Pool.all
 
       @pools = Pool.geocoded
-      raise
       @markers = @pools.map do |pool|
         {
           lat: pool.latitude,

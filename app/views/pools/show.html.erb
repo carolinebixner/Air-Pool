@@ -19,31 +19,19 @@
     </div>
     <div class="col-6">
 
-        <div class="row">
-          <div class="col-6">
-            <img src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="pool" class="img-2">
-          </div>
-          <div class="col-6">
-            <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="pool" class="img-2">
-          </div>
-          <div class="col-6 img-mg">
-            <img src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="pool" class="img-2">
-          </div>
-          <div class="col-6 img-mg">
-            <img src="https://images.unsplash.com/photo-1523301343968-6a6ebf63c672?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="pool" class="img-2">
-          </div>
 
-        <div class="row img-up">
-          <% @pool.photos.drop(1).each do |photo|%>
-            <div class="col-6 img-mg">
-              <%= cl_image_tag photo.key, height: 182, width: 200, crop: :fill %>
-            </div>
-          <% end  %>
+      <div class="row img-up">
+        <% @pool.photos.drop(1).each do |photo|%>
+          <div class="col-6 img-mg">
+            <%= cl_image_tag photo.key, height: 182, width: 200, crop: :fill %>
+          </div>
+        <% end  %>
 
-        </div>
+      </div>
     </div>
   </div>
 </div>
+
 
 <br>
 <br>

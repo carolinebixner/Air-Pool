@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_16_125706) do
+ActiveRecord::Schema.define(version: 2020_06_17_093224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,21 +55,10 @@ ActiveRecord::Schema.define(version: 2020_06_16_125706) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
-  create_table "locations", force: :cascade do |t|
-    t.string "country"
-    t.string "city"
-    t.text "adress_line_1"
-    t.text "adress_line_2"
-    t.string "zipcode"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "pools", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.bigint "user_id", null: false
-    t.bigint "location_id", null: false
     t.integer "capacity"
     t.integer "price"
     t.boolean "has_lifeguard"
@@ -84,7 +73,7 @@ ActiveRecord::Schema.define(version: 2020_06_16_125706) do
     t.boolean "includes_bar"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["location_id"], name: "index_pools_on_location_id"
+    t.string "location"
     t.index ["user_id"], name: "index_pools_on_user_id"
   end
 
@@ -115,7 +104,6 @@ ActiveRecord::Schema.define(version: 2020_06_16_125706) do
   add_foreign_key "available_dates", "pools"
   add_foreign_key "bookings", "pools"
   add_foreign_key "bookings", "users"
-  add_foreign_key "pools", "locations"
   add_foreign_key "pools", "users"
   add_foreign_key "reviews", "pools"
   add_foreign_key "reviews", "users"

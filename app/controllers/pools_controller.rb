@@ -3,24 +3,34 @@ class PoolsController < ApplicationController
 
     def index
       @pools = Pool.all
+
+
     end
 
     def show
+      @markers = [
+        {
+          lat: @pool.latitude,
+          lng: @pool.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { pool: @pool }),
+          image_url: helpers.asset_url('geo_pool.png')
+        }]
     end
+
 
     def new
     @pool = Pool.new
-  end
-
-  def create
-    @pool = Pool.new(pool_params)
-    @pool.user = current_user
-    if @pool.save
-      redirect_to pool_path(@pool), notice: "Creating your pool"
-    else
-    render :new
     end
-  end
+
+    def create
+      @pool = Pool.new(pool_params)
+      @pool.user = current_user
+      if @pool.save
+        redirect_to pool_path(@pool), notice: "Creating your pool"
+      else
+      render :new
+      end
+    end
 
 private
 

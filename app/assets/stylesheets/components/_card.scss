@@ -4,7 +4,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
-  height: 175px;
   position: relative;
   font-size: 24px;
   justify-content: center;
@@ -20,8 +19,13 @@
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   color: white;
   border-radius: 5px;
+  position: relative;
+  height: 180px;
  }
-
+  // &:hover{
+  //   background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
+  //   box-shadow: none;
+  // }
 
 }
 
@@ -37,6 +41,10 @@
 
 .img-mg {
   margin-top: 40px;
+}
+
+.img-up {
+  margin-top: -41px;
 }
 
 
@@ -73,35 +81,20 @@
   position: relative;
 }
 
-.card-trip-infos .card-trip-user {
+.card-trip-user {
   position: absolute;
-  right: 16px;
-  top: -20px;
+  right: 6px;
+  top: 8px;
   width: 40px;
 }
+
 
 .card-trip {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
-// .card-flex-item-image{
-//   flex-grow: 100%;
-// }
-// // .card-flex-pool{
-// // display:flex;
-// // flex-direction: column;
 
-// // }
-// .card-pool-text{
-
-//   padding: 16px;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: left;
-//    font-size: 12px;
-//   opacity: .7;
-//   margin: 0;
 .card-trip-2 {
   overflow: hidden;
   background: white;
@@ -139,5 +132,40 @@
   height:200px;
   background-size:cover;
 
+
+@media (max-width: 1020px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
+@media (max-width: 600px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.red{
+  color: red;
+}
+
+.green{
+  color:green;
+
+}
+
+.right {
+  margin-right: -55px;
+}
+
+.left {
+  margin-left: -55px;
+}
+
+.block-left {
+  margin-left: -60px;
+}
+
+.center {
+  margin-left: 150px
+}

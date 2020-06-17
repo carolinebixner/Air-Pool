@@ -1,4 +1,5 @@
 <!-- COMPLETE FORM AT TOP OF PAGE TO LOOK FOR POOLS -->
+<body>
 <div class="container-small">
 <form accept-charset="UTF-8" action="/pools" >
   <div class="row in-line-search">
@@ -15,36 +16,27 @@
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path('pool_banner.jpg')%>)">
 <div class="main-container">
-  <div class="main-container" >
     <h1> Rent a pool <strong> and take a dip</strong></h1>
     <p> Have a mini vacation and relax </p>
     <a class="red-button" href="/pools">Discover our pools</a>
-  </div>
 </div>
 </div>
 
 
 <div class='main-container'>
-
-<!-- <div class= "red-button">
-<a href = # >Find a pool</a>
-</div> -->
-
-
 <div class='cards'>
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('pool1')%>)">
-    <h2>Chill in the tropics</h2>
+  <% @pools_sample.each do |pool| %>
+  <a href="/pools/<%=pool.id%>">
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path pool.photos[rand(0..1)].key %>)">
+    <div>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+    </div>
+    <h3 style="font-size:30px"><%= pool.name %></h3>
+    <p style="font-size:15px">Capacity: <%= pool.capacity %> swimmers</p>
+    <p style="font-size:15px">Price: $<%= pool.price %></p>
   </div>
-   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('pool2')%>)">
-    <h2>Group outings</h2>
+  </a>
+  <% end %>
   </div>
-   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('pool3')%>)">
-    <h2>Urban dipping</h2>
-  </div>
-
 </div>
-
-
-</div>
-
-
+</body>

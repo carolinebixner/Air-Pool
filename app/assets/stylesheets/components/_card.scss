@@ -21,10 +21,22 @@
   color: white;
   border-radius: 5px;
  }
-
+  &:hover{
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
+    box-shadow: none;
+  }
 
 }
 
+.img-1 {
+  width: 400px;
+  height: 400px;
+}
+
+.img-2 {
+  width: 250px;
+  height: 180px;
+}
 
 .img-mg {
   margin-top: 40px;
@@ -75,6 +87,17 @@
   width: 40px;
 }
 
+@media (max-width: 1020px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
 
 .red{
   color: red;
@@ -95,3 +118,4 @@
 .block-left {
   margin-left: -60px;
 }
+

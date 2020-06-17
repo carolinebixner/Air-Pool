@@ -32,19 +32,17 @@
 
 
 <div class='cards'>
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('pool1')%>)">
-    <h2>Chill in the tropics</h2>
+  <% @pools_sample.each do |pool| %>
+  <a href="/pools/<%=pool.id%>">
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path pool.photos[rand(0..2)].key %>)">
+    <h2><%= pool.name %></h2>
+    <p>Capacity: <%= pool.capacity %> swimmers</p>
+    <p>Price: $<%= pool.price %></p>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
   </div>
-   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('pool2')%>)">
-    <h2>Group outings</h2>
+  </a>
+  <% end %>
   </div>
-   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('pool3')%>)">
-    <h2>Urban dipping</h2>
-  </div>
-
-</div>
-
-
 </div>
 
 

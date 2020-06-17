@@ -29,7 +29,7 @@ users.each do |user|
   p "Creating pools for user #{n}"
   cities = ["berlin" ,"amsterdam", "paris", "madrid"]
   booleans = [true, false]
-  2.times do
+  5.times do
     pool = Pool.new(
       name: Faker::Artist.name,
       description: Faker::ChuckNorris.fact,

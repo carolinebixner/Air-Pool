@@ -25,18 +25,13 @@
 
 }
 
-.img-1 {
-  width: 400px;
-  height: 400px; 
-}
-
-.img-2 {
-  width: 250px;
-  height: 180px; 
-}
 
 .img-mg {
   margin-top: 40px;
+}
+
+.img-up {
+  margin-top: -41px;
 }
 
 
@@ -81,3 +76,22 @@
 }
 
 
+.red{
+  color: red;
+}
+
+.green{
+  color:green;
+}
+
+.right {
+  margin-right: -55px;
+}
+
+.left {
+  margin-left: -55px;
+}
+
+.block-left {
+  margin-left: -60px;
+}

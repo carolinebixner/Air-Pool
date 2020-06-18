@@ -24,8 +24,8 @@
   <% @pools_sample.each do |pool| %>
   <a class = "link-card" href="/pools/<%=pool.id%>">
   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path pool.photos[rand(0..1)].key %>)">
-    <div class = card-trip-user>
-      <p><%= pool.user.name.capitalize %></p>
+    <div class = "card-trip-user">
+      <p class="mt-2"><%= pool.user.name.capitalize %></p>
       <img src="<%= cl_image_path pool.user.avatar.key %>" class="avatar-bordered" />
     </div>
     <div class="card-trip-description">

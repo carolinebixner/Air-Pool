@@ -13,9 +13,13 @@
     <%= pool.name %>
   <% end %>
 
-  <h2> Your booking requests </h2>
+  <% if @my_booking_requests != [] %>
+    <h2> Your booking requests </h2>
     <% @my_booking_requests.each do |request| %>
     <%= request.pool.name %>
+    <%= request.start_date.strftime"%A, %b %d"%>
+    <%= request.end_date.strftime"%A, %b %d"%>
+    <% end %>
   <% end %>
 
   </div>

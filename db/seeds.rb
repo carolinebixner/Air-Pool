@@ -1,10 +1,10 @@
 require 'faker'
 require 'open-uri'
 
-p "Deleting pools..."
-Pool.destroy_all
 p "Deleting bookings..."
 Booking.destroy_all
+p "Deleting pools..."
+Pool.destroy_all
 p "Deleting users..."
 User.delete_all
 

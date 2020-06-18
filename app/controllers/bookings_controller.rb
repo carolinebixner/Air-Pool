@@ -30,10 +30,12 @@ class BookingsController < ApplicationController
 
   def booking_accepted(booking)
     booking.status = 'accepted'
+    booking.save
   end
 
   def booking_rejected(booking)
     booking.status = 'rejected'
+    booking.save
   end
 
   private

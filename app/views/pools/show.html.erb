@@ -43,73 +43,63 @@
 </div>
 
 <div class="second-section">
-      <h3>Services</h3>
-      <br><br>
+        <h3>Services</h3>
+        <br><br>
+          <div class="row">
+            <% if @pool.has_lifeguard? == true %>
+              <p class="col-3 mt-4">Has lifeguard  <i class="fa fa-check green" aria-hidden="true"></i></p>
+            <% end %>
+            <% if @pool.children_friendly? == true %>
+              <p class="col-3 mt-4">Children friendly  <i class="fa fa-check green" aria-hidden="true"></i></p>
+            <% end %>
+            <% if @pool.jacuzzi_section? == true %>
+              <p class="col-3 mt-4">Jacuzzi_section <i class="fa fa-check green" aria-hidden="true"></i></p>
+            <% end %>
+            <% if @pool.climatization? == true %>
+              <p class="col-3 mt-4">Climatization  <i class="fa fa-check green" aria-hidden="true"></i></p>
+            <% end %>
+            <% if @pool.pool_side? == true %>
+              <p class="col-3 mt-4">Pool slide  <i class="fa fa-check green" aria-hidden="true"></i></p>
+            <% end %>
+            <% if @pool.has_floats? == true %>
+              <p class="col-3 mt-4">Has floats  <i class="fa fa-check green" aria-hidden="true"></i></p>
+            <% end %>
+              <% if @pool.towels_include? == true %>
+              <p class="col-3 mt-4">Towels included  <i class="fa fa-check green" aria-hidden="true"></i></p>
+            <% end %>
+              <% if @pool.pet_friendly? == true %>
+              <p class="col-3 mt-4">Pet friendly  <i class="fa fa-check green" aria-hidden="true"></i></p>
+            <% end %>
+            <% if @pool.salted_water? == true %>
+              <p class="col-3 mt-4">Salted water  <i class="fa fa-check green" aria-hidden="true"></i></p>
+            <% end %>
+            <% if @pool.includes_bar? == true %>
+              <p class="col-3 mt-4">Includes bar<i class="fa fa-check green" aria-hidden="true"></i></p>
+            <% end %>
+          </div>
 
-        <div class="row">
-        <% if @pool.has_lifeguard? == true %>
-          <p class="col-3 mt-4">Has lifeguard  <i class="fa fa-check green" aria-hidden="true"></i></p>
-        <% end %>
-        <% if @pool.children_friendly? == true %>
-          <p class="col-3 mt-4">Children friendly  <i class="fa fa-check green" aria-hidden="true"></i></p>
-        <% end %>
-      <% end %>
+
+  <div class="separate">
+  </div>
+
+  <div class="show-ubication">
+    <h3>Ubication</h3>
+    <br><br>
+    <div class="align-map">
+        <div id="map"
+          style="width: 800px; height: 400px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
     </div>
   </div>
-
-        <% if @pool.jacuzzi_section? == true %>
-          <p class="col-3 mt-4">Jacuzzi_section <i class="fa fa-check green" aria-hidden="true"></i></p>
-        <% end %>
-        <% if @pool.climatization? == true %>
-          <p class="col-3 mt-4">Climatization  <i class="fa fa-check green" aria-hidden="true"></i></p>
-        <% end %>
-        <% if @pool.pool_side? == true %>
-          <p class="col-3 mt-4">Pool slide  <i class="fa fa-check green" aria-hidden="true"></i></p>
-        <% end %>
-        <% if @pool.has_floats? == true %>
-          <p class="col-3 mt-4">Has floats  <i class="fa fa-check green" aria-hidden="true"></i></p>
-        <% end %>
-          <% if @pool.towels_include? == true %>
-          <p class="col-3 mt-4">Towels included  <i class="fa fa-check green" aria-hidden="true"></i></p>
-        <% end %>
-          <% if @pool.pet_friendly? == true %>
-          <p class="col-3 mt-4">Pet friendly  <i class="fa fa-check green" aria-hidden="true"></i></p>
-        <% end %>
-        <% if @pool.salted_water? == true %>
-          <p class="col-3 mt-4">Salted water  <i class="fa fa-check green" aria-hidden="true"></i></p>
-        <% end %>
-        <% if @pool.includes_bar? == true %>
-          <p class="col-3 mt-4">Includes bar<i class="fa fa-check green" aria-hidden="true"></i></p>
-        <% end %>
-        </div>
-
-
-=======
-<div class="separate">
-</div>
-<div class="show-ubication">
-  <h3>Ubication</h3>
-  <br><br>
-
-  <div class="align-map">
-            <div id="map"
-        style="width: 800px; height: 400px;"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
-  </div>
-
 </div>
 
-</div>
-
-<div class="main-container">
+<br><br><br><br>
   <h1> Please make your booking </h1>
   <%= simple_form_for [@pool, @booking] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.button :submit %>
-<% end %>
-</div>
-
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.button :submit %>
+  <% end %>
 </div>

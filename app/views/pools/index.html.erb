@@ -24,27 +24,62 @@
 
 
   <!-- cars to show all pools -->
-    <div class='container'>
+
+<!--   <div class='main-container'>
+    <div class='row'>
+      <%# @pools.each do |pool| %>
+        <div class='col-12 col-lg-8  col-sm-6"'>
+            <div class="card-trip-2 black-letters">
+              <div class='card-trip-image-2' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%#= cl_image_path pool.photos[rand(0..2)].key %>')">
+                <div class= "card-trip-infos-2">
+                  <div>
+                    <h2> <%#= pool.name%></h2>
+                    <div class= "city-info">
+                      <i class= "fas fa-city">
+                      </i>
+                      <p><%#= pool.location%></p>
+                    </div>
+                  </div>
+                <h2 class="card-trip-pricing-2"><%#=pool.price%> $</h2>
+                </div>
+              </div>
+            </div>
+        </div>
+      <%#end %>
+    </div>
+  </div> -->
+
+    <div class='main-container'>
       <div class='row'>
         <% @pools.each do |pool| %>
-        <div class='col-4'>
-        <a href="/pools/<%=pool.id%>">
-          <div class="card-trip-2 black-letters">
+        <div class='col-12 col-md-6 col-lg-4 col-sm-6 black-letters'>
+         <%= link_to pool_path(pool) do %>
+          <div class="card-trip-2 black-letters mb-3">
             <div class='card-trip-image' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path pool.photos[rand(0..2)].key %>')">
             </div>
               <div class="card-trip-infos-2">
-                  <div>
-                    <p><%= pool.description%></p>
+                <div>
+                  <div class="d-flex">
+                    <h5><%=pool.name%></h5>
                   </div>
-
+                    <div class="d-flex justify-content-start">
+                      <i class="fas fa-city"></i>
+                      <p class="ml-2"><%= pool.location%></p>
+                      <i class="fas fa-swimmer ml-2"></i>
+                      <p class="ml-2"><%= pool.capacity%></p>
+                    </div>
+                </div>
+                  <div class= "d-flex justify-content-space-between">
+                      <!-- <img src="<%#= cl_image_path pool.user.avatar.key %>" class="card-trip-user avatar-bordered" /> -->
+                    <h5 class= "card-trip-pricing"><%=pool.price%>€</h5>
+                  </div>
               </div>
             </div>
-             </a> 
+          <%end %>
          </div>
-       
+
         <%end %>
       </div>
     </div>
-</div>
 
-  
+

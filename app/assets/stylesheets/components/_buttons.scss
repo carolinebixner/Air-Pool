@@ -17,17 +17,16 @@ a {
     display: inline-block;
     box-shadow: 5px 10px 5px 0 rgba(66, 48, 48, 0.1);
     a {
-      color: white;
+      color: rgb(255, 255, 255);
     }
-    .input {
-      color: white;
+    .btn {
+      color: rgb(255, 255, 255);
     }
 }
 
 
 
 .red-button:hover{
-    color:white;
-    padding: 10.5px;
+    color:rgb(255, 255, 255);
     background-color: #ee4640e1;
 }

@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $blueish;
+  padding: 4px 60px;
   }
 
   .navbar-lewagon .navbar-collapse {
@@ -13,6 +14,17 @@
 
   .navbar-light .navbar-nav .nav-link {
   font-family: $headers-font;
+  color: white;
+  &:hover {
+    color: #e7305b;
   }
 
+}
+
+.fas {
+  color: white;
+  &:hover {
+    color: #e7305b;
+  }
+}
 

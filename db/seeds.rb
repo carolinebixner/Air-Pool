@@ -1,39 +1,70 @@
 require 'faker'
+require 'open-uri'
 
 p "Deleting pools..."
-Pool.delete_all
+Pool.destroy_all
+p "Deleting bookings..."
+Booking.destroy_all
 p "Deleting users..."
 User.delete_all
 
 p "Creating users..."
-users = []
-2.times do
-  user = User.create!(
-    email: "#{Faker::Name.first_name}@gmail.com",
-    password: Faker::Hacker.ingverb
+
+  users = []
+  caro = User.new(
+    name: "Caroline",
+    email: "caroline@gmail.com",
+    password: "123456",
     )
-  users << user
-  p user
-end
+  caro.avatar.attach(io: URI.open("https://res.cloudinary.com/dvqgik5mb/image/upload/v1592476688/mgit9uumrz4varxfwapu.png"), filename: 'caro.png', content_type: 'png')
+  caro.save
+  p caro
+  users << caro
+
+  alejandro = User.new(
+  name: "Alejandro",
+  email: "alejandro@gmail.com",
+  password: "123456",
+  )
+  alejandro.avatar.attach(io: URI.open('https://res.cloudinary.com/dvqgik5mb/image/upload/v1592476643/olwc4fgd7wrisv8frjfs.png'), filename: 'jandro.png', content_type: 'png')
+  alejandro.save
+  p alejandro
+  users << alejandro
+
+  pati = User.new(
+  name: "Pati",
+  email: "pati@gmail.com",
+  password: "123456",
+  )
+  pati.avatar.attach(io: URI.open('https://res.cloudinary.com/dvqgik5mb/image/upload/v1592476715/lekgzefpgeqckfyowypd.png'), filename: 'pati.png', content_type: 'png')
+  pati.save
+  p pati
+  users << pati
+
+  marta = User.new(
+  name: "Marta",
+  email: "marta@gmail.com",
+  password: "123456",
+  )
+  marta.avatar.attach(io: URI.open('https://res.cloudinary.com/dvqgik5mb/image/upload/v1592476666/l3tzmubtz9vyvlcpstqi.png'), filename: 'marta.png', content_type: 'png')
+  marta.save
+  p marta
+  users << marta
 
 p "Users created!"
 
-photo1 = 'app/assets/images/pool1.jpg'
-photo2 = 'app/assets/images/pool2.jpg'
-photo3 = 'app/assets/images/pool3.jpg'
-
-p "Creating 4 pools for each user"
+p "Creating 2 pools for each user"
 n = 1
 
 users.each do |user|
-  p "Creating pools for user #{n}"
+  p "Creating pools for #{user.name}"
   cities = ["berlin" ,"amsterdam", "paris", "madrid"]
   booleans = [true, false]
-  5.times do
+  2.times do
     pool = Pool.new(
       name: Faker::Artist.name,
       description: Faker::ChuckNorris.fact,
-      location: cities[n - 1],
+      location: cities.sample(1)[0],
       capacity: rand(0..100),
       price: rand(200..1000),
       has_lifeguard: booleans.sample,
@@ -48,12 +79,11 @@ users.each do |user|
       includes_bar: booleans.sample,
       )
     pool.user_id = user.id
-    pool.photos.attach(io: File.open(photo1), filename: 'pool1.jpg', content_type: 'jpg')
-    pool.photos.attach(io: File.open(photo2), filename: 'pool2.jpg', content_type: 'jpg')
-    pool.photos.attach(io: File.open(photo3), filename: 'pool3.jpg', content_type: 'jpg')
+    pool.photos.attach(io: URI.open("https://res.cloudinary.com/dvqgik5mb/image/upload/v1592476035/5v9p7vt9euxdpi0nzpm3ipgk207a.jpg"), filename: 'pool1.jpg', content_type: 'jpg')
+    pool.photos.attach(io: URI.open("https://res.cloudinary.com/dvqgik5mb/image/upload/v1592476033/5shlnnq67hxkq16s8xja1trvjcn8.jpg"), filename: 'pool2.jpg', content_type: 'jpg')
+    pool.photos.attach(io: URI.open("https://res.cloudinary.com/dvqgik5mb/image/upload/v1592407363/y6rtj6vag1l0eqh27mc2zz9nvf4v.jpg"), filename: 'pool3.jpg', content_type: 'jpg')
     pool.save!
   end
-  n += 1
 end
 
 

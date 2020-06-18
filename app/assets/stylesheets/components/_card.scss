@@ -125,8 +125,9 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 8px;
-}
 
+
+}
   // *,*::before, *::after {
   //   box-sizing: border-box;
   // }
@@ -135,14 +136,7 @@
   width: 100%;
   object-fit: cover;
 }
-.grid-container{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
-  max-width: 1300px;
-  margin: 0 auto;
-  margin-top: 25px
-}
+
 .card-trip-2 h2 {
   font-size: 16px;
   font-weight: bold;
@@ -178,21 +172,27 @@
 }
 .card-trip-image{
   height:200px;
-
   background-size:cover;
+&:hover {
+  text-decoration: none;
+  box-shadow: 3px 3px 5px 6px #ccc;
 }
+}
+
 .card-trip-2 .fas-fa{
   background-color: #D23333;
 
 }
 .card-trip-pricing {
   min-width: 60px;
+  margin-top: 30px;
+  margin-right: -10px;
 }
-.card-trip-pricing :hover {
-  min-width: 60px;
-  color: #D23333;
-  text-decoration:none;
-}
+// .card-trip-pricing :hover {
+//   min-width: 60px;
+//   color: #D23333;
+//   text-decoration:none;
+// }
 
 @media (max-width: 1020px) {
   .cards {
@@ -236,6 +236,8 @@
 }
 
 .black-letters :hover {
-  color: black;
+  color: grey;
   text-decoration: none;
+  text-shadow: 3px 3px 5px 6px #ccc;
+
 }

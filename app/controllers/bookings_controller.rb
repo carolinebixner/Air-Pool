@@ -28,15 +28,13 @@ class BookingsController < ApplicationController
     end
   end
 
-  def booking_accepted(booking)
-    booking.status = 'accepted'
-    booking.save
+  def change_status
+    @booking = Booking.find(params[:id])
+    @booking.status = params[:status]
+    @booking.save
+    redirect_to dashboard_path(current_user)
   end
 
-  def booking_rejected(booking)
-    booking.status = 'rejected'
-    booking.save
-  end
 
   private
 

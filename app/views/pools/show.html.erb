@@ -53,6 +53,10 @@
         <% if @pool.children_friendly? == true %>
           <p class="col-3 mt-4">Children friendly  <i class="fa fa-check green" aria-hidden="true"></i></p>
         <% end %>
+      <% end %>
+    </div>
+  </div>
+
         <% if @pool.jacuzzi_section? == true %>
           <p class="col-3 mt-4">Jacuzzi_section <i class="fa fa-check green" aria-hidden="true"></i></p>
         <% end %>
@@ -80,6 +84,7 @@
         </div>
 
 
+=======
 <div class="separate">
 </div>
 <div class="show-ubication">
@@ -93,10 +98,18 @@
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
   </div>
-</div>
 
 </div>
 
+</div>
 
+<div class="main-container">
+  <h1> Please make your booking </h1>
+  <%= simple_form_for [@pool, @booking] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.button :submit %>
+<% end %>
+</div>
 
 </div>

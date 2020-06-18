@@ -1,12 +1,4 @@
 class BookingsController < ApplicationController
-  def index
-    @bookings = current_user.bookings
-    end
-
-  def new
-    @booking = Booking.new
-  end
-
   def show
     @booking = Booking.find(params[:id])
   end
@@ -16,27 +8,39 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.find(params[:id])
-    booking.user_id = current_user.id
+    @booking = Booking.new(booking_params)
+    @booking.pool_id = params[:pool_id]
+    @booking.user_id = current_user.id
     if @booking.save
-      redirect_to booking_path(@booking), notice: "You have booked your pool!"
+      redirect_to dashboard_path, notice: "You have booked your pool!"
     else
-      render :new
+      @pool = Pool.find(params[:pool_id])
+      @markers = [
+      {
+          lat: @pool.latitude,
+          lng: @pool.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { pool: @pool }),
+          image_url: helpers.asset_url('geo_pool.png')
+        }
+      ]
+     @booking = Booking.new
+      render "pools/show"
     end
   end
 
-  def update
-      if @booking.update(booking_params)
-      redirect_to @booking, notice: 'Your booking was succesfully updated.'
-    else
-      render :edit
-    end
+  def booking_accepted(booking)
+    booking.status = 'accepted'
+    booking.save
+  end
+
+  def booking_rejected(booking)
+    booking.status = 'rejected'
+    booking.save
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:id)
+    params.require(:booking).permit(:start_date, :end_date)
   end
-
 end

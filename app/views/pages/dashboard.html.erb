@@ -1,0 +1,26 @@
+<div class="main-container">
+  <h2> Here are the bookings that you have made </h2>
+  <% @my_bookings.each do |booking| %>
+    <%= booking.pool.name %>
+    <%= booking.start_date.strftime"%A, %b %d"%>
+    <%= booking.end_date.strftime"%A, %b %d"%>
+    <%= booking.status %>
+    <%= link_to 'Show', booking  %>
+  <% end %>
+
+  <h2> This a list of your pools </h2>
+    <% @my_pools.each do |pool|  %>
+    <%= pool.name %>
+  <% end %>
+
+  <% if @my_booking_requests != [] %>
+    <h2> Your booking requests </h2>
+    <% @my_booking_requests.each do |request| %>
+    <%= request.pool.name %>
+    <%= request.start_date.strftime"%A, %b %d"%>
+    <%= request.end_date.strftime"%A, %b %d"%>
+    <% end %>
+  <% end %>
+
+  </div>
+

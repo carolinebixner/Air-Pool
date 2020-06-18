@@ -78,10 +78,11 @@ users.each do |user|
       salted_water: booleans.sample,
       includes_bar: booleans.sample,
       )
+
     pool.user_id = user.id
     pool.photos.attach(io: URI.open("https://res.cloudinary.com/dvqgik5mb/image/upload/v1592476035/5v9p7vt9euxdpi0nzpm3ipgk207a.jpg"), filename: 'pool1.jpg', content_type: 'jpg')
     pool.photos.attach(io: URI.open("https://res.cloudinary.com/dvqgik5mb/image/upload/v1592476033/5shlnnq67hxkq16s8xja1trvjcn8.jpg"), filename: 'pool2.jpg', content_type: 'jpg')
-    pool.photos.attach(io: URI.open("https://res.cloudinary.com/dvqgik5mb/image/upload/v1592410449/d9a68mj881067o8u0voqn4zu2h9f.jpg"), filename: 'pool3.jpg', content_type: 'jpg')
+    # pool.photos.attach(io: URI.open("https://res.cloudinary.com/dvqgik5mb/image/upload/v1592410449/d9a68mj881067o8u0voqn4zu2h9f.jpg"), filename: 'pool3.jpg', content_type: 'jpg')
     pool.save!
   end
 end

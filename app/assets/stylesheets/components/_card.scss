@@ -10,6 +10,11 @@
   font-weight: bold;
 
 
+ .link-card:hover {
+  text-decoration: none;
+  box-shadow: 3px 3px 5px 6px #ccc;
+}
+
  .card {
   display: flex;
   justify-content: center;
@@ -21,6 +26,9 @@
   border-radius: 5px;
   position: relative;
   height: 180px;
+  &:hover {
+    text-decoration: none;
+  }
  }
   // &:hover{
   //   background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
@@ -82,10 +90,27 @@
 }
 
 .card-trip-user {
+  display: flex;
+  align-content: center;
   position: absolute;
-  right: 6px;
-  top: 8px;
-  width: 40px;
+  right: 10px;
+  top: 6px;
+  p {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+}
+
+.card-trip-description {
+  text-align: center;
+  margin-top: 40px;
+  h3 {
+    font-size: 20px;
+  }
+  p {
+    font-size: 15px;
+    margin: 5px 0;
+  }
 }
 
 

@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :reviews
   has_many :pools
+  has_one_attached :avatar
 end

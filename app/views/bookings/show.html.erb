@@ -1,0 +1,13 @@
+<div class="main-container">
+  <h2>
+    Here is your booking
+  </h2>
+  <p> <strong>Pool</strong>
+  <%= @booking.pool.name %>
+   </p>
+
+   <p> <strong>Status</strong>
+    <%= @booking.status %></p>
+</div>
+
+<%= link_to "All bookings" booking_path %>

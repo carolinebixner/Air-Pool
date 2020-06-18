@@ -26,5 +26,28 @@
   &:hover {
     color: #e7305b;
   }
+  margin-top: 5px;
 }
 
+.logo-inline {
+  display: flex;
+}
+
+.align-airpool {
+  color:white;
+  margin-left: 8px;
+  margin-top: 5px;
+}
+
+h6 {
+  font-family: $headers-font;
+}
+
+.navbar-btn {
+  border-left: solid 2px rgba(255, 255, 255, 0.200);
+  border-right: solid 2px rgba(255, 255, 255, 0.200);
+}
+
+.mv-right {
+  margin-left: 20px;
+}

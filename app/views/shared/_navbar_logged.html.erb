@@ -1,8 +1,9 @@
 
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand logo-inline" href="/">
         <i class="fas fa-swimming-pool"></i>
+            <div class="align-airpool"><h6>Air Pool</h6></div>
       </a>
 <!--       <h5 class="logo">AirPool</h5> -->
     </div>
@@ -10,10 +11,10 @@
       <ul class="navbar-nav mr-auto">
         <% if current_user %>
           <li class="nav-item">
-              <a class="nav-link" href="/pools/new">Add your pool</a>
+              <a class="nav-link navbar-btn" href="/pools/new">Add your pool</a>
             </li>
           <li class="nav-item dropdown">
-            <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= cl_image_path current_user.avatar.key %>" />
+            <img class="avatar dropdown-toggle mv-right" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= cl_image_path current_user.avatar.key %>" />
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="/dashboard">My dashboard</a>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"dropdown-item"%>
@@ -21,7 +22,7 @@
           </li>
           <% else %>
             <li class="nav-item">
-              <a class="nav-link" href="/users/sign_in">Sign in</a>
+              <a class="nav-link navbar-btn" href="/users/sign_in">Sign in</a>
             </li>
           <% end %>
       </ul>

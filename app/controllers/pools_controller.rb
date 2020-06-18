@@ -14,6 +14,7 @@ class PoolsController < ApplicationController
         image_url: helpers.asset_url('geo_pool.png')
       }
     ]
+     @booking = Booking.new
   end
 
   def new

@@ -109,8 +109,16 @@
         <% end %>
       <% end %>
     </div>
-
-
   </div>
+
+<div class="main-container">
+  <h1> Please make your booking </h1>
+  <%= simple_form_for [@pool, @booking] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.button :submit %>
+<% end %>
+</div>
+
 </div>
 

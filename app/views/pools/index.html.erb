@@ -1,7 +1,4 @@
 
-
-
-
 <div class="main-container"; style= "margin-bottom: 10px">
   <br>
   <br>
@@ -14,54 +11,48 @@
         <div class="col search-input">
           <input type="text" class="form-control" placeholder="Location">
         </div>
-       <!--  <div class="col search-input">
-          <input type="number" class="form-control" placeholder="Number of swimmers">
-        </div> -->
-       <button type="submit" class="red-button">Search</button>
+      <button type="submit" class="red-button">Search</button>
       </div>
     </form>
-  </div>
-  <div class="align-map main-container">
-            <div id="map"
+    </div>
+
+  <div class="align-map mb-4">
+    <div id="map"
         style="width: 800px; height: 400px;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
+    </div>
   </div>
 
   <!-- cars to show all pools -->
 
-    <div class='main-container'>
-      <div class='row'>
-        <% @pools.each do |pool| %>
-        <div class='col-12 col-md-6 col-lg-4 col-sm-6 black-letters'>
-         <%= link_to pool_path(pool) do %>
+
+  <div class='row'>
+    <% @pools.each do |pool| %>
+      <div class='col-md-6 col-lg-4 col-sm-6 black-letters'>
+        <%= link_to pool_path(pool) do %>
           <div class="card-trip-2 black-letters mb-3">
             <div class='card-trip-image' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path pool.photos[rand(0..2)].key %>')">
             </div>
-              <div class="card-trip-infos-2">
-                <div>
-                  <div class="d-flex">
+            <div class="card-trip-infos-2">
+              <div>
+                <div class="d-flex">
                     <h5><%=pool.name%></h5>
-                  </div>
-                    <div class="d-flex justify-content-start">
-                      <i class="fas fa-city"></i>
-                      <p class="ml-2"><%= pool.location%></p>
-                      <i class="fas fa-swimmer ml-2"></i>
-                      <p class="ml-2"><%= pool.capacity%></p>
-                    </div>
                 </div>
-                    <img src="<%= cl_image_path pool.user.avatar.key %>" class="card-trip-user-2 avatar-bordered"/>
-                    <h5 class= "card-trip-pricing"><%=pool.price%>€</h5>
+                <div class="d-flex justify-content-start">
+                  <i class="fas fa-city"></i>
+                  <p class="ml-2"><%= pool.location%></p>
+                  <i class="fas fa-swimmer ml-2"></i>
+                  <p class="ml-2"><%= pool.capacity%></p>
+                </div>
+                <img src="<%= cl_image_path pool.user.avatar.key %>" class="card-trip-user-2 avatar-bordered"/>
+                <h5 class= "card-trip-pricing"><%=pool.price%>€</h5>
                   </div>
               </div>
-            </div>
-          <%end %>
-         </div>
-
+          </div>
         <%end %>
       </div>
-    </div>
-
- </div>
+    <%end %>
+  </div>
+</div>
 

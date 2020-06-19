@@ -3,105 +3,106 @@
 
   <h1> <strong> Dashboard </strong></h1>
 
+
 <!--  Your listed pools -->
-  <div class="card-dashboard">
+<!--   <div class="card-dashboard">
     <h2> Your listed pools </h2>
     <br>
-      <% @my_pools.each do |pool|  %>
+      <%# @my_pools.each do |pool|  %>
       <div class ="d-flex">
-         <div> <%= pool.name %>
-          <img src= "<%= cl_image_path pool.photos.first.key %>" class="img-dashboard"/>
+         <div> <#%= pool.name %>
+          <img src= "<#%= cl_image_path pool.photos.first.key %>" class="img-dashboard"/>
           </div>
       </div>
-    <% end %>
+    <#% end %>
 
+  </div> -->
+
+  <div class="card-dashboard">
+    <div class='row justify-content'>
+    <h2> Your listed pools </h2>
+      <% @my_pools.each do |pool|  %>
+      <div class="card-trip-2 black-letters mb-3">
+        <div class='card-trip-image' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path pool.photos.first.key %>')">
+        </div>
+          <div class="card-trip-infos-2">
+            <div>
+              <div class="d-flex justify-content">
+                  <h5><%=pool.name%></h5>
+              </div>
+            </div>
+            </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
   </div>
 
 <br>
 
-<!--  Youur bookings -->
-
-  <div class="card-dashboard">
-    <h2> Your pool bookings </h2>
-    <br>
-    <div class="row headers">
-      <div class="col">
-        <h5>Poolname</h5>
-      </div>
-      <div class="col">
-        <h5> Start-date</h5>
-      </div>
-      <div class="col">
-        <h5> End-date </h5>
-      </div>
-      <div class="col">
-        <h5>Booking status</h5>
-      </div>
-
-    </div>
-
+ <div class="card-dashboard">
+     <h2> Pools you will visit </h2>
     <% @my_bookings.each do |booking| %>
-    <div class="row card-booking mb-2">
+    <div class="row card-booking mb-2 mt-2">
       <div class="col">
+         <h5>Pool name</h5>
           <%= booking.pool.name %>
         </div>
         <div class="col">
+           <h5>Start-date</h5>
           <%= booking.start_date.strftime"%A, %b %d"%>
         </div>
         <div class="col">
+          <h5>End-date </h5>
           <%= booking.end_date.strftime"%A, %b %d"%>
         </div>
         <div class="col">
+          <h5>Booking status</h5>
           <%= booking.status %>
           </div>
-        <div class="btn btn-info">
-          <%= link_to 'Show', booking_path(booking)  %>
-          <%= link_to 'Cancel', booking_path(booking), method: :delete  %>
+        <div class="col">
+          <h5> Action </h5>
+          <div class = 'd-flex justify-content-start-between'>
+          <div ><%= link_to 'Show', booking_path(booking),  method: :show, class: "btn button-show"  %></div>
+          <br>
+          <div class = "ml-1"> <%= link_to 'Cancel', booking_path(booking), method: :delete, class: "btn button-delete"  %></div>
+          </div>
         </div>
       </div>
     <% end %>
   </div>
 
+
   <br>
 
  <div class="card-dashboard">
-
-<!-- Boiking requests -->
   <% if @my_booking_requests != [] %>
-<!-- Headers -->
     <h2> Your booking requests </h2>
-    <br>
-    <div class="row headers">
-      <div class="col">
-        <h5>Pool requested</h5>
-      </div>
-      <div class="col">
-        <h5>User info</h5>
-      </div>
-      <div class="col">
-        <h5>Dates</h5>
-      </div>
-      <div class="col">
-        <h5>Status</h5>
-      </div>
-    </div>
     <% @my_booking_requests.sort.each do |request| %>
-    <div class="row card-booking mb-2">
+    <div class="row card-booking mb-2 mt-2">
       <div class="col">
+        <h5>Pool name</h5>
         <%= request.pool.name %>
       </div>
       <div class="col">
+         <h5>User name</h5>
         <%= request.user.name %>
       </div>
       <div class="col">
+         <h5>Start-date</h5>
         <%= request.start_date.strftime"%A, %b %d"%>
+      </div>
+        <div class="col">
+         <h5>End-date</h5>
         <%= request.end_date.strftime"%A, %b %d"%>
       </div>
       <div class="col">
+        <h5>Status</h5>
         <% if request.status == "pending" %>
         <div class = 'd-flex justify-content-start-between'>
           <div ><%= link_to "Accept", booking_status_change_path(request, status: "accepted"), method: :patch, class: "btn button-accept" %></div>
-          <div ><%= link_to "Reject", booking_status_change_path(request, status: "rejected"), method: :patch, class: "btn button-reject" %></div>
+          <br>
+          <div class = "ml-1"><%= link_to "Reject", booking_status_change_path(request, status: "rejected"), method: :patch, class: "btn button-reject" %></div>
           </div>
         <% elsif request.status == "accepted" %>
           <p style = "color: #1b6ca8; font-weight: bold"><%= request.status.capitalize %> </p>

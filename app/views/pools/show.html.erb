@@ -29,61 +29,57 @@
 
 
     <div class="right-part col 6">
-    <div class="align-text">
-          <h2><%= @pool.name %></h2>
-    </div>
+      <div class="align-text">
+        <h2><%= @pool.name %></h2>
+      </div>
       <br><br><br><br>
       <p><%= @pool.description %></p>
     </div>
 
-  </div>
+</div>
+    <br><br><br><br>
+
+    <div class="row">
+      <% if @pool.has_lifeguard? == true %>
+        <p class="col-3 mt-4">Has lifeguard  <i class="fa fa-check green" aria-hidden="true"></i></p>
+      <% end %>
+      <% if @pool.children_friendly? == true %>
+        <p class="col-3 mt-4">Children friendly  <i class="fa fa-check green" aria-hidden="true"></i></p>
+      <% end %>
+      <% if @pool.jacuzzi_section? == true %>
+        <p class="col-3 mt-4">Jacuzzi_section <i class="fa fa-check green" aria-hidden="true"></i></p>
+      <% end %>
+      <% if @pool.climatization? == true %>
+        <p class="col-3 mt-4">Climatization  <i class="fa fa-check green" aria-hidden="true"></i></p>
+      <% end %>
+      <% if @pool.pool_side? == true %>
+        <p class="col-3 mt-4">Pool slide  <i class="fa fa-check green" aria-hidden="true"></i></p>
+      <% end %>
+      <% if @pool.has_floats? == true %>
+        <p class="col-3 mt-4">Has floats  <i class="fa fa-check green" aria-hidden="true"></i></p>
+      <% end %>
+        <% if @pool.towels_include? == true %>
+        <p class="col-3 mt-4">Towels included  <i class="fa fa-check green" aria-hidden="true"></i></p>
+      <% end %>
+        <% if @pool.pet_friendly? == true %>
+        <p class="col-3 mt-4">Pet friendly  <i class="fa fa-check green" aria-hidden="true"></i></p>
+      <% end %>
+      <% if @pool.salted_water? == true %>
+        <p class="col-3 mt-4">Salted water  <i class="fa fa-check green" aria-hidden="true"></i></p>
+      <% end %>
+      <% if @pool.includes_bar? == true %>
+        <p class="col-3 mt-4">Includes bar<i class="fa fa-check green" aria-hidden="true"></i></p>
+      <% end %>
+    </div>
+  
 
 
 <div class="separate">
 </div>
 
 <div class="second-section">
-        <h3>Services</h3>
-        <br><br>
-          <div class="row">
-            <% if @pool.has_lifeguard? == true %>
-              <p class="col-3 mt-4">Has lifeguard  <i class="fa fa-check green" aria-hidden="true"></i></p>
-            <% end %>
-            <% if @pool.children_friendly? == true %>
-              <p class="col-3 mt-4">Children friendly  <i class="fa fa-check green" aria-hidden="true"></i></p>
-            <% end %>
-            <% if @pool.jacuzzi_section? == true %>
-              <p class="col-3 mt-4">Jacuzzi_section <i class="fa fa-check green" aria-hidden="true"></i></p>
-            <% end %>
-            <% if @pool.climatization? == true %>
-              <p class="col-3 mt-4">Climatization  <i class="fa fa-check green" aria-hidden="true"></i></p>
-            <% end %>
-            <% if @pool.pool_side? == true %>
-              <p class="col-3 mt-4">Pool slide  <i class="fa fa-check green" aria-hidden="true"></i></p>
-            <% end %>
-            <% if @pool.has_floats? == true %>
-              <p class="col-3 mt-4">Has floats  <i class="fa fa-check green" aria-hidden="true"></i></p>
-            <% end %>
-              <% if @pool.towels_include? == true %>
-              <p class="col-3 mt-4">Towels included  <i class="fa fa-check green" aria-hidden="true"></i></p>
-            <% end %>
-              <% if @pool.pet_friendly? == true %>
-              <p class="col-3 mt-4">Pet friendly  <i class="fa fa-check green" aria-hidden="true"></i></p>
-            <% end %>
-            <% if @pool.salted_water? == true %>
-              <p class="col-3 mt-4">Salted water  <i class="fa fa-check green" aria-hidden="true"></i></p>
-            <% end %>
-            <% if @pool.includes_bar? == true %>
-              <p class="col-3 mt-4">Includes bar<i class="fa fa-check green" aria-hidden="true"></i></p>
-            <% end %>
-          </div>
-
-
-  <div class="separate">
-  </div>
-
   <div class="show-ubication">
-    <h3>Ubication</h3>
+    <h3>Location</h3>
     <br><br>
     <div class="align-map">
         <div id="map"

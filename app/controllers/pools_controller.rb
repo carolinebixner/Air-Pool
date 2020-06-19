@@ -1,20 +1,20 @@
 class PoolsController < ApplicationController
-  before_action :set_pool, only: [:show, :edit, :update, :destroy]
+  before_action :set_pool, only:[:show, :edit, :update, :destroy]
 
   def index
     if params[:query].present?
       @pools = Pool.where("location ILIKE ?", "%#{params[:query]}%")
+      @pools.geocoded
     else
-      @pools = Pool.all
+      @pools = Pool.all.geocoded
     end
-    @pools = Pool.geocoded # returns flats with coordinates
-
+ # returns flats with coordinates
     @markers = @pools.map do |pool|
       {
         lat: pool.latitude,
         lng: pool.longitude
       }
-   
+    end
   end
 
   def show

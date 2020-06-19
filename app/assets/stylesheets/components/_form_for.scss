@@ -11,3 +11,23 @@ grid-template-columns: 1fr 1fr;
 .form-inputs-login{
   color:white;
 }
+
+
+.form-design {
+  width: 130px;
+  background-color: white !important;
+  border: solid 0.5px black;
+  &.form-right {
+    border-radius: 0 5px 5px 0;
+  }
+  &.form-left {
+    border-radius: 5px 0 0 5px;
+  }
+}
+
+.container-show-form {
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}

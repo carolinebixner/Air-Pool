@@ -239,3 +239,20 @@
   text-shadow: 3px 3px 5px 6px #ccc;
 
 }
+
+.show-card {
+  display:flex;
+  justify-content: space-between;
+}
+
+.avatar-name {
+  display: block;
+  // margin-right: 20px;
+  // margin-top: 20px;
+
+  &p{
+    text-align:center;
+    margin-top:5px;
+  }
+}
+

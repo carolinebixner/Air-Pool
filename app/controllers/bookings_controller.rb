@@ -8,23 +8,27 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    @booking.pool_id = params[:pool_id]
-    @booking.user_id = current_user.id
-    if @booking.save
-      redirect_to dashboard_path, notice: "You have booked your pool!"
+    if !current_user
+      redirect_to new_user_session_path
     else
-      @pool = Pool.find(params[:pool_id])
-      @markers = [
-      {
-          lat: @pool.latitude,
-          lng: @pool.longitude,
-          infoWindow: render_to_string(partial: "info_window", locals: { pool: @pool }),
-          image_url: helpers.asset_url('geo_pool.png')
-        }
-      ]
-     @booking = Booking.new
-      render "pools/show"
+      @booking = Booking.new(booking_params)
+      @booking.pool_id = params[:pool_id]
+      @booking.user_id = current_user.id
+      if @booking.save
+        redirect_to dashboard_path, notice: "You have booked your pool!"
+      else
+        @pool = Pool.find(params[:pool_id])
+        @markers = [
+        {
+            lat: @pool.latitude,
+            lng: @pool.longitude,
+            infoWindow: render_to_string(partial: "info_window", locals: { pool: @pool }),
+            image_url: helpers.asset_url('geo_pool.png')
+          }
+        ]
+       @booking = Booking.new
+        render "pools/show"
+      end
     end
   end
 
@@ -32,6 +36,12 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.status = params[:status]
     @booking.save
+    redirect_to dashboard_path(current_user)
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.delete
     redirect_to dashboard_path(current_user)
   end
 

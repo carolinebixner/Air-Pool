@@ -7,6 +7,8 @@ ruby '2.6.6'
 #for geocoding & map
 gem 'geocoder'
 
+#for search
+gem 'pg_search', '~> 2.3.0'
 
 gem 'faker'
 

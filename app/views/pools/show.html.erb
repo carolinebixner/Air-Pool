@@ -13,7 +13,7 @@
           <div class="carousel-inner carousel-border carousel-style">
           <% @pool.photos.each_with_index do |photo, index| %>
 
-                <div class="carousel-item carousel-style <%= "active" if index == 0 %>"> 
+                <div class="carousel-item carousel-style <%= "active" if index == 0 %>">
               <img class="d-block w-100 carousel-style" src=<%=photo.service_url %> alt="First slide">
             </div>
         <% end %>
@@ -26,7 +26,6 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
-        </div>  
     </div>
     </div>
     <div class="right-part">
@@ -79,7 +78,7 @@
       <p class="col-3 mt-4">Includes bar<i class="fa fa-check green" aria-hidden="true"></i></p>
     <% end %>
   </div>
-  
+
 
 
 
@@ -118,7 +117,7 @@
 </div>
 
 
-  
+
   </div>
 </div>
 
@@ -148,7 +147,6 @@
     <li style="list-style-type: none"><i style="color: #e7305b" class="fas fa-star"></i></li>
     <% end %>
     </ul>
-
     <p><%= review.description %></p>
   </div>
 </div>
@@ -164,6 +162,7 @@
 <% end %>
 
 </div>
+
  
 
 

@@ -10,6 +10,7 @@
           <%= f.input :name %>
           <%= f.input :description%>
           <%= f.input :location, input_html: { class: "algolia-input" }%>
+          <%= f.input :city%>
           <%= f.input :capacity, as: :numeric%>
           <%= f.input :price, as: :numeric%>
           <%= f.input :photos, as: :file, input_html: { multiple: true }%>

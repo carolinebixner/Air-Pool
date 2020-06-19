@@ -56,36 +56,36 @@ p "Users created!"
 p "Creating 2 pools for each user"
 n = 1
 
-users.each do |user|
-  p "Creating pools for #{user.name}"
-  cities = ["berlin" ,"amsterdam", "paris", "madrid"]
-  booleans = [true, false]
-  2.times do
-    pool = Pool.new(
-      name: Faker::Artist.name,
-      description: Faker::ChuckNorris.fact,
-      location: cities.sample(1)[0],
-      city: cities.sample(1)[0],
-      capacity: rand(0..100),
-      price: rand(200..1000),
-      has_lifeguard: booleans.sample,
-      children_friendly: booleans.sample,
-      jacuzzi_section: booleans.sample,
-      climatization:booleans.sample,
-      pool_side: booleans.sample,
-      has_floats:booleans.sample,
-      towels_include:booleans.sample,
-      pet_friendly: booleans.sample,
-      salted_water: booleans.sample,
-      includes_bar: booleans.sample,
-      )
+# users.each do |user|
+#   p "Creating pools for #{user.name}"
+#   cities = ["berlin" ,"amsterdam", "paris", "madrid"]
+#   booleans = [true, false]
+#   2.times do
+#     pool = Pool.new(
+#       name: Faker::Artist.name,
+#       description: Faker::ChuckNorris.fact,
+#       location: cities.sample(1)[0],
+#       city: cities.sample(1)[0],
+#       capacity: rand(0..100),
+#       price: rand(200..1000),
+#       has_lifeguard: booleans.sample,
+#       children_friendly: booleans.sample,
+#       jacuzzi_section: booleans.sample,
+#       climatization:booleans.sample,
+#       pool_side: booleans.sample,
+#       has_floats:booleans.sample,
+#       towels_include:booleans.sample,
+#       pet_friendly: booleans.sample,
+#       salted_water: booleans.sample,
+#       includes_bar: booleans.sample,
+#       )
 
-    pool.user_id = user.id
-    pool.photos.attach(io: URI.open("https://res.cloudinary.com/dvqgik5mb/image/upload/v1592476035/5v9p7vt9euxdpi0nzpm3ipgk207a.jpg"), filename: 'pool1.jpg', content_type: 'jpg')
-    pool.photos.attach(io: URI.open("https://res.cloudinary.com/dvqgik5mb/image/upload/v1592476033/5shlnnq67hxkq16s8xja1trvjcn8.jpg"), filename: 'pool2.jpg', content_type: 'jpg')
-    # pool.photos.attach(io: URI.open("https://res.cloudinary.com/dvqgik5mb/image/upload/v1592410449/d9a68mj881067o8u0voqn4zu2h9f.jpg"), filename: 'pool3.jpg', content_type: 'jpg')
-    pool.save!
-  end
-end
+#     pool.user_id = user.id
+#     pool.photos.attach(io: URI.open("https://res.cloudinary.com/dvqgik5mb/image/upload/v1592476035/5v9p7vt9euxdpi0nzpm3ipgk207a.jpg"), filename: 'pool1.jpg', content_type: 'jpg')
+#     pool.photos.attach(io: URI.open("https://res.cloudinary.com/dvqgik5mb/image/upload/v1592476033/5shlnnq67hxkq16s8xja1trvjcn8.jpg"), filename: 'pool2.jpg', content_type: 'jpg')
+#     # pool.photos.attach(io: URI.open("https://res.cloudinary.com/dvqgik5mb/image/upload/v1592410449/d9a68mj881067o8u0voqn4zu2h9f.jpg"), filename: 'pool3.jpg', content_type: 'jpg')
+#     pool.save!
+#   end
+# end
 
 

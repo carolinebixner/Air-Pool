@@ -6,6 +6,8 @@ ruby '2.6.6'
 
 #for geocoding & map
 gem 'geocoder'
+# turbolinks
+gem 'turbolinks_render'
 
 #for search
 gem 'pg_search', '~> 2.3.0'

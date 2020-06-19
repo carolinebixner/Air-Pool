@@ -10,7 +10,7 @@
         </ol>
         <div class="carousel-inner carousel-border carousel-style">
         <% @pool.photos.each_with_index do |photo, index| %>
-          <div class="carousel-item carousel-style <%= "active" if index == 0 %>"> 
+          <div class="carousel-item carousel-style <%= "active" if index == 0 %>">
             <img class="d-block w-100 carousel-style" src=<%=photo.service_url %> alt="First slide">
           </div>
       <% end %>
@@ -23,7 +23,7 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
-      </div>  
+      </div>
     </div>
     </div>
 
@@ -71,7 +71,7 @@
         <p class="col-3 mt-4">Includes bar<i class="fa fa-check green" aria-hidden="true"></i></p>
       <% end %>
     </div>
-  
+
 
 
 <div class="separate">
@@ -98,4 +98,43 @@
     <%= f.input :end_date %>
     <%= f.button :submit %>
   <% end %>
+
+<!-- REVIEWS -->
+<div class="separate">
 </div>
+
+<br>
+
+<h3><%= pluralize @pool.reviews.count, "review" %></h3>
+
+<% @reviews.each do |review| %>
+<div class="card">
+  <div class="card-body">
+    <div class = "card-trip-user-align">
+      <img src="<%= cl_image_path review.user.avatar.key %>" class="avatar-bordered" />
+      <p class="mt-2 ml-2"><%= review.user.name.capitalize %></p>
+    </div>
+    <%= review.created_at.strftime"%A, %b %d" %>
+    <ul class="card-trip-user-align pl-0">
+    <%review.rating.times do%>
+    <li style="list-style-type: none"><i style="color: #e7305b" class="fas fa-star"></i></li>
+    <% end %>
+    </ul>
+
+    <p><%= review.description %></p>
+  </div>
+</div>
+<br>
+<% end %>
+
+<h3 class="mt-3">Add your review!</h3>
+
+<%= simple_form_for ([@pool, @review]) do |f| %>
+  <%= f.input :description, as: :text %>
+  <%= f.input :rating, as: :integer, input_html: { max: 5 }%>
+  <div class = "red-button" id="submit-review-button"><%= f.button :submit%></div>
+<% end %>
+
+</div>
+
+

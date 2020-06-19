@@ -9,11 +9,29 @@
     border-radius: 5px;
 }
 
-.align-text {
-}
-
-
-
 .features {
     border: solid black
+}
+
+.first-section {
+    justify-content: space-between;
+}
+
+.right-part {
+    width: 40vw;
+}
+
+ .right-part {
+     padding-left: 20px;
+ }
+
+.align-price {
+    font-weight: 600;
+    font-size: 18px;
+    text-align: end;
+    margin-top: 95px;
+}
+
+.align-features {
+    margin-left: 50px
 }

@@ -14,17 +14,15 @@
 
 .first-section {
   margin-top: 20px;
+  margin-right: 15px;
 }
 
-.second-section {
-  margin-top: 120px
-}
-
+// s
 .separate {
 border-bottom: solid 1px rgba(0,0,0,0.1);
 width: 700px;
 margin: 0 auto;
-margin-top: 120px;
+margin-top: 30px;
 }
 
 .container-show {
@@ -32,7 +30,7 @@ margin-top: 120px;
   background-color: white;
   padding: 50px;
   border-radius: 10px;
-  box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.05)
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .services {
@@ -40,7 +38,14 @@ margin-top: 120px;
 }
 
 .show-ubication {
-  margin-top: 120px;
+  margin-top: 100px;
+}
+
+
+.second-section {
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
 }
 
 
@@ -53,3 +58,4 @@ margin-top: 120px;
   }
 
 }
+

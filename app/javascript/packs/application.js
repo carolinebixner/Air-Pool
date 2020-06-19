@@ -36,3 +36,5 @@ document.addEventListener('turbolinks:load', () => {
    initAlgolia();
    initMapbox();
 });
+
+import "../plugins/flatpickr"

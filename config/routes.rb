@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
     resources :reviews, only: [:new, :create]
   end
-  resources :bookings, only: [:index, :show, :edit]
+  resources :bookings, only: [:index, :show, :edit, :destroy]
   resources :reviews, except: [:new, :create]
   get '/dashboard', to: 'pages#dashboard', as: :dashboard
   patch '/bookings/:id', to: 'bookings#change_status', as: :booking_status_change

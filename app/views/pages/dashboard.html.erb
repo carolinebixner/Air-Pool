@@ -5,7 +5,8 @@
     <%= booking.start_date.strftime"%A, %b %d"%>
     <%= booking.end_date.strftime"%A, %b %d"%>
     <%= booking.status %>
-    <%= link_to 'Show', booking  %>
+    <%= link_to 'Show', booking_path(booking)  %>
+    <%= link_to 'Cancel', booking_path(booking), method: :delete  %>
   <% end %>
 
   <h2> This a list of your pools </h2>

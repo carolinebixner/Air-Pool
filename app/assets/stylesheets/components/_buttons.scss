@@ -70,6 +70,7 @@ a {
   border-radius: 5px;
   text-align: center;
   font-size: 12px;
+
 }
 
 .button-reject {
@@ -80,4 +81,42 @@ a {
   border-radius: 5px;
   text-align: center;
   font-size: 12px;
+
+  &:hover {
+    background-color: red;
+  }
 }
+
+.button-show {
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 12px;
+  border: 1px solid $gray;
+  color: black;
+  text-decoration: none;
+
+  &:hover {
+    font-weight: bold;
+  }
+
+
+}
+
+.button-delete {
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 12px;
+  border: 1px solid $gray;
+  color: black;
+  text-decoration: none;
+
+    &:hover {
+      color: red;
+    }
+
+}
+
+
+

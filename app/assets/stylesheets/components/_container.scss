@@ -42,3 +42,14 @@ margin-top: 120px;
 .show-ubication {
   margin-top: 120px;
 }
+
+
+.dashboard-container {
+  display: grid;
+
+  h1 {
+    text-align: center;
+    color: $pink;
+  }
+
+}

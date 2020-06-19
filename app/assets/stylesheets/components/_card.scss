@@ -217,7 +217,7 @@
   margin-right: -55px;
 }
 
-.left { 
+.left {
   margin-left: -55px;
 }
 
@@ -239,3 +239,87 @@
   text-shadow: 3px 3px 5px 6px #ccc;
 
 }
+
+
+// Cards for dashboard
+
+.card-dashboard {
+  overflow: hidden;
+  background: white;
+  padding: 15px;
+  box-shadow: 0 0 15px #f7e3e8;
+  // display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.card-dashboard h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+
+}
+
+.img-dashboard {
+height: 100%;
+width: 120px;
+border-radius: 5px;
+}
+
+.card-dashboard li {
+  font-size: 18px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  list-style-type: none;
+}
+
+.card-dashboard .card-dashboard-infos {
+  padding: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+.card-pool-list {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -7,6 +7,14 @@ class PoolsController < ApplicationController
     else
       @pools = Pool.all
     end
+    @pools = Pool.geocoded # returns flats with coordinates
+
+    @markers = @pools.map do |pool|
+      {
+        lat: pool.latitude,
+        lng: pool.longitude
+      }
+   
   end
 
   def show

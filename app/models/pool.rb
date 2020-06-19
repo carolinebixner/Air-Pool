@@ -10,10 +10,12 @@ class Pool < ApplicationRecord
   validates :location, presence: true
   validates :description, presence: true, length: {minimum: 20}
   validates :photos, presence: true, length: {minimum: 2}
+
   include PgSearch::Model
   pg_search_scope :search_by_location,
     against: [:location],
     using: {
       tsearch: { prefix: true }
   }
+
 end

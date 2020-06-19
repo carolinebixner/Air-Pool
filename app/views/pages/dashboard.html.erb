@@ -5,38 +5,38 @@
 
 
 <!--  Your listed pools -->
-<!--   <div class="card-dashboard">
-    <h2> Your listed pools </h2>
-    <br>
-      <%# @my_pools.each do |pool|  %>
-      <div class ="d-flex">
-         <div> <#%= pool.name %>
-          <img src= "<#%= cl_image_path pool.photos.first.key %>" class="img-dashboard"/>
-          </div>
+<h2> Your listed pools </h2>
+  <div class='cards'>
+    <% @my_pools.each do |pool| %>
+    <a class = "link-card" href="/pools/<%=pool.id%>">
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path pool.photos.first.key %>)">
+      <div class="card-trip-description">
+        <h3 style="font-size:30px"><%= pool.name %></h3>
       </div>
-    <#% end %>
+    </div>
+    </a>
+    <% end %>
+  </div>
 
-  </div> -->
-
-  <div class="card-dashboard">
+<!--   <div class="card-dashboard">
     <div class='row justify-content'>
     <h2> Your listed pools </h2>
-      <% @my_pools.each do |pool|  %>
+      <#% @my_pools.each do |pool|  %>
       <div class="card-trip-2 black-letters mb-3">
-        <div class='card-trip-image' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path pool.photos.first.key %>')">
+        <div class='card-trip-image' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<#%= cl_image_path pool.photos.first.key %>')">
         </div>
           <div class="card-trip-infos-2">
             <div>
               <div class="d-flex justify-content">
-                  <h5><%=pool.name%></h5>
+                  <h5><#%=pool.name%></h5>
               </div>
             </div>
             </div>
         </div>
-      <% end %>
+      <#% end %>
       </div>
     </div>
-  </div>
+  </div> -->
 
 <br>
 
@@ -115,4 +115,4 @@
     <% end %>
     </div>
   </div>
-</div>
+

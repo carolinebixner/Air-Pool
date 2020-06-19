@@ -39,14 +39,14 @@
                   <div class="d-flex">
                       <h5><%=pool.name%></h5>
                   </div>
-                  <div class="d-flex justify-content-start">
+                  <div class="d-flex justify-content">
                     <i class="fas fa-city"></i>
-                    <p class="ml-2"><%= pool.location%></p>
+                    <p class="mt-2 ml-2"><%= pool.location%></p>
                     <i class="fas fa-swimmer ml-2"></i>
-                    <p class="ml-2"><%= pool.capacity%></p>
+                    <p class="mt-2 ml-2"><%= pool.capacity%></p>
                   </div>
                 </div>
-                    <div class= "d-flex justify-content-start">
+                    <div class= "d-flex justify-content">
                       <img src="<%= cl_image_path pool.user.avatar.key %>" class="card-trip-user-2 avatar-bordered"/>
                       <h5 class= "card-trip-pricing"><%=pool.price%>€</h5>
                     </div>

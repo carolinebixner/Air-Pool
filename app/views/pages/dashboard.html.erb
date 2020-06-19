@@ -42,26 +42,38 @@
 
  <div class="card-dashboard">
      <h2> Pools you will visit </h2>
+     <div class="row card-booking mb-2 mt-2">
+        <div class="col">
+          <h5>Pool name</h5>
+        </div>
+        <div class="col">
+          <h5>Start Date</h5>
+        </div>
+        <div class="col">
+          <h5>End Date</h5>
+        </div>
+        <div class="col">
+          <h5>Current Status</h5>
+        </div>
+        <div class="col">
+          <h5>Action</h5>
+        </div>
+     </div>
     <% @my_bookings.each do |booking| %>
     <div class="row card-booking mb-2 mt-2">
       <div class="col">
-         <h5>Pool name</h5>
           <%= booking.pool.name %>
         </div>
         <div class="col">
-           <h5>Start-date</h5>
           <%= booking.start_date.strftime"%A, %b %d"%>
         </div>
         <div class="col">
-          <h5>End-date </h5>
           <%= booking.end_date.strftime"%A, %b %d"%>
         </div>
         <div class="col">
-          <h5>Booking status</h5>
-          <%= booking.status %>
+          <%= booking.status.capitalize %>
           </div>
         <div class="col">
-          <h5> Action </h5>
           <div class = 'd-flex justify-content-start-between'>
           <div ><%= link_to 'Show', booking_path(booking),  method: :show, class: "btn button-show"  %></div>
           <br>
@@ -78,26 +90,38 @@
  <div class="card-dashboard">
   <% if @my_booking_requests != [] %>
     <h2> Your booking requests </h2>
+     <div class="row card-booking mb-2 mt-2">
+        <div class="col">
+          <h5>Pool name</h5>
+        </div>
+        <div class="col">
+          <h5>User name</h5>
+        </div>
+        <div class="col">
+          <h5>Start Date</h5>
+        </div>
+        <div class="col">
+          <h5>End Date</h5>
+        </div>
+        <div class="col">
+          <h5>Status</h5>
+        </div>
+     </div>
     <% @my_booking_requests.sort.each do |request| %>
     <div class="row card-booking mb-2 mt-2">
       <div class="col">
-        <h5>Pool name</h5>
         <%= request.pool.name %>
       </div>
       <div class="col">
-         <h5>User name</h5>
         <%= request.user.name %>
       </div>
       <div class="col">
-         <h5>Start-date</h5>
         <%= request.start_date.strftime"%A, %b %d"%>
       </div>
         <div class="col">
-         <h5>End-date</h5>
         <%= request.end_date.strftime"%A, %b %d"%>
       </div>
       <div class="col">
-        <h5>Status</h5>
         <% if request.status == "pending" %>
         <div class = 'd-flex justify-content-start-between'>
           <div ><%= link_to "Accept", booking_status_change_path(request, status: "accepted"), method: :patch, class: "btn button-accept" %></div>

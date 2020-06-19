@@ -12,7 +12,8 @@
           </ol>
           <div class="carousel-inner carousel-border carousel-style">
           <% @pool.photos.each_with_index do |photo, index| %>
-            <div class="carousel-item carousel-style <%= "active" if index == 0 %>"> 
+
+                <div class="carousel-item carousel-style <%= "active" if index == 0 %>"> 
               <img class="d-block w-100 carousel-style" src=<%=photo.service_url %> alt="First slide">
             </div>
         <% end %>
@@ -26,6 +27,32 @@
             <span class="sr-only">Next</span>
           </a>
         </div>  
+          <li data-target="#carouselExampleIndicators" data-slide-to="<%=index%>" class="<%= "active" if index == 0 %>"></li>
+          <% end  %>
+        </ol>
+        <div class="carousel-inner carousel-border carousel-style">
+        <% @pool.photos.each_with_index do |photo, index| %>
+          <div class="carousel-item carousel-style <%= "active" if index == 0 %>">
+            <img class="d-block w-100 carousel-style" src=<%=photo.service_url %> alt="First slide">
+          </div>
+      <% end %>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+    </div>
+
+
+    <div class="right-part col 6">
+      <div class="align-text">
+        <h2><%= @pool.name %></h2>
       </div>
     </div>
 
@@ -44,6 +71,7 @@
         <p><%= @pool.description %></p>
         <div class="align-price"><p><%= @pool.price %> ‎€</p></div>
     </div>
+
   </div>
   <div class="border-show-card-down"></div>
   <br><br><br><br>
@@ -82,6 +110,9 @@
   
 
 
+
+
+
   <div class="separate">
   </div>
 
@@ -114,8 +145,58 @@
   </div>
 </div>
 
+
   
   </div>
 </div>
 </div>
+
+
+<br><br><br><br>
+  <h1> Please make your booking </h1>
+  <%= simple_form_for [@pool, @booking] do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.button :submit %>
+  <% end %>
+
+<!-- REVIEWS -->
+<div class="separate">
+</div>
+
+<br>
+
+<h3><%= pluralize @pool.reviews.count, "review" %></h3>
+
+<% @reviews.each do |review| %>
+<div class="card">
+  <div class="card-body">
+    <div class = "card-trip-user-align">
+      <img src="<%= cl_image_path review.user.avatar.key %>" class="avatar-bordered" />
+      <p class="mt-2 ml-2"><%= review.user.name.capitalize %></p>
+    </div>
+    <%= review.created_at.strftime"%A, %b %d" %>
+    <ul class="card-trip-user-align pl-0">
+    <%review.rating.times do%>
+    <li style="list-style-type: none"><i style="color: #e7305b" class="fas fa-star"></i></li>
+    <% end %>
+    </ul>
+
+    <p><%= review.description %></p>
+  </div>
+</div>
+<br>
+<% end %>
+
+<h3 class="mt-3">Add your review!</h3>
+
+<%= simple_form_for ([@pool, @review]) do |f| %>
+  <%= f.input :description, as: :text %>
+  <%= f.input :rating, as: :integer, input_html: { max: 5 }%>
+  <div class = "red-button" id="submit-review-button"><%= f.button :submit%></div>
+<% end %>
+
+</div>
+
+
 

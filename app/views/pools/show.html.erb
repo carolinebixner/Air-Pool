@@ -10,7 +10,7 @@
         </ol>
         <div class="carousel-inner carousel-border carousel-style">
         <% @pool.photos.each_with_index do |photo, index| %>
-          <div class="carousel-item carousel-style <%= "active" if index == 0 %>"> 
+          <div class="carousel-item carousel-style <%= "active" if index == 0 %>">
             <img class="d-block w-100 carousel-style" src=<%=photo.service_url %> alt="First slide">
           </div>
       <% end %>
@@ -23,7 +23,7 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
-      </div>  
+      </div>
     </div>
     </div>
 
@@ -71,7 +71,7 @@
         <p class="col-3 mt-4">Includes bar<i class="fa fa-check green" aria-hidden="true"></i></p>
       <% end %>
     </div>
-  
+
 
 
 <div class="separate">
@@ -99,3 +99,13 @@
     <%= f.button :submit %>
   <% end %>
 </div>
+
+
+<!-- REVIEWS -->
+<%= pluralize @reviews, "review" %>
+
+<%= simple_form_for [@pool, @review] do |f| %>
+  <%= f.input :description, as: :text %>
+  <%= f.input :rating %>
+  <%= f.button :submit %>
+<% end %>

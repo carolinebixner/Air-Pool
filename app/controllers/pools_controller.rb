@@ -27,6 +27,7 @@ class PoolsController < ApplicationController
       }
     ]
      @booking = Booking.new
+     @reviews = @pool.reviews
   end
 
   def new

@@ -12,13 +12,48 @@
     <% @my_pools.each do |pool|  %>
     <%= pool.name %>
   <% end %>
-
+<!-- Boiking requests -->
   <% if @my_booking_requests != [] %>
+<!-- Headers -->
     <h2> Your booking requests </h2>
-    <% @my_booking_requests.each do |request| %>
-    <%= request.pool.name %>
-    <%= request.start_date.strftime"%A, %b %d"%>
-    <%= request.end_date.strftime"%A, %b %d"%>
+    <div class="row headers">
+      <div class="col">
+        <h4>Pool requested</h4>
+      </div>
+      <div class="col">
+        <h4>User info</h4>
+      </div>
+      <div class="col">
+        <h4>Dates</h4>
+      </div>
+      <div class="col">
+        <h4>Status</h4>
+      </div>
+    </div>
+<!-- Booking request data -->
+    <% @my_booking_requests.sort.each do |request| %>
+    <div class="row card-booking mb-2">
+      <div class="col">
+        <%= request.pool.name %>
+      </div>
+      <div class="col">
+        <%= request.user.name %>
+      </div>
+      <div class="col">
+        <%= request.start_date.strftime"%A, %b %d"%>
+        <%= request.end_date.strftime"%A, %b %d"%>
+      </div>
+      <div class="col">
+        <% if request.status == "pending" %>
+          <div class="red-button"><%= link_to "Accept", booking_status_change_path(request, status: "accepted"), method: :patch %></div>
+          <div class="blue-button"><%= link_to "Reject", booking_status_change_path(request, status: "rejected"), method: :patch %></div>
+        <% elsif request.status == "accepted" %>
+          <p style = "color: #1b6ca8; font-weight: bold"><%= request.status.capitalize %> </p>
+        <% else %>
+          <p style = "color: #e7305b; font-weight: bold"><%= request.status.capitalize %> </p>
+        <% end %>
+      </div>
+    </div>
     <% end %>
   <% end %>
 

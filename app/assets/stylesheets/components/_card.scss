@@ -101,6 +101,15 @@
   }
 }
 
+.card-trip-user-align{
+  display: flex;
+  align-content: center;
+  p {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+}
+
 .card-trip-description {
   text-align: center;
   margin-top: 40px;

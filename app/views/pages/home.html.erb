@@ -6,10 +6,10 @@
     <h1> Rent a pool <strong> and take a dip</strong></h1>
     <p> Have a mini vacation and relax </p>
     <div style="width:50%">
-    <form accept-charset="UTF-8" action="/pools" >
+    <form accept-charset="UTF-8" action="/pools" method="get" >
       <div class="row in-line-search">
         <div class="col search-input">
-          <input type="text" class="form-control algolia-input" placeholder="What city would you like to dive into?">
+          <input type="text" name = "query" class="form-control algolia-input" placeholder="What city would you like to dive into?">
         </div>
        <button type="submit" class="red-button">Discover</button>
       </div>

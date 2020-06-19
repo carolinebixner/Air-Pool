@@ -2,7 +2,11 @@ class PoolsController < ApplicationController
   before_action :set_pool, only: [:show, :edit, :update, :destroy]
 
   def index
-    @pools = Pool.all
+    if params[:query].present?
+      @pools = Pool.where("location ILIKE ?", "%#{params[:query]}%")
+    else
+      @pools = Pool.all
+    end
     @pools = Pool.geocoded # returns flats with coordinates
 
     @markers = @pools.map do |pool|
@@ -10,7 +14,7 @@ class PoolsController < ApplicationController
         lat: pool.latitude,
         lng: pool.longitude
       }
-    end
+   
   end
 
   def show
@@ -46,6 +50,6 @@ class PoolsController < ApplicationController
   end
 
   def pool_params
-    params.require(:pool).permit(:name, :location_id, :description, :capacity, :price, :has_lifeguard, :children_friendly, :jacuzzi_section, :climatization, :pool_side, :has_floats, :towels_include, :pet_friendly, :salted_water, :includes_bar, photos: [])
+    params.require(:pool).permit(:name, :location, :description, :capacity, :price, :has_lifeguard, :children_friendly, :jacuzzi_section, :climatization, :pool_side, :has_floats, :towels_include, :pet_friendly, :salted_water, :includes_bar, photos: [])
   end
 end

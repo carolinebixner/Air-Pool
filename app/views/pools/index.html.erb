@@ -1,15 +1,12 @@
 
 <div class="main-container"; style= "margin-bottom: 10px">
-  <br>
-  <br>
-  <br>
   <div class="container-small"><h5>Search by city</h5></div>
   <!-- #location search bar -->
   <div class="container-small">
-    <form accept-charset="UTF-8" action="/pools" >
+    <form accept-charset="UTF-8" action="/pools" method="get" >
       <div class="row in-line-search">
         <div class="col search-input">
-          <input type="text" class="form-control algolia-input" placeholder="Location">
+          <input type="text" name="query class="form-control algolia-input" placeholder="Location">
         </div>
       <button type="submit" class="red-button">Search</button>
       </div>

@@ -2,9 +2,9 @@ require 'faker'
 require 'open-uri'
 
 p "Deleting bookings..."
-Booking.destroy_all
+Booking.delete_all
 p "Deleting pools..."
-Pool.destroy_all
+Pool.delete_all
 p "Deleting users..."
 User.delete_all
 
@@ -65,6 +65,7 @@ users.each do |user|
       name: Faker::Artist.name,
       description: Faker::ChuckNorris.fact,
       location: cities.sample(1)[0],
+      city: cities.sample(1)[0],
       capacity: rand(0..100),
       price: rand(200..1000),
       has_lifeguard: booleans.sample,

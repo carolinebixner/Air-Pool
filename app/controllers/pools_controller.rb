@@ -3,7 +3,7 @@ class PoolsController < ApplicationController
 
   def index
     if params[:query].present?
-      @pools = Pool.where("location ILIKE ?", "%#{params[:query]}%")
+      @pools = Pool.where("city ILIKE ?", "%#{params[:query]}%")
       @pools.geocoded
     else
       @pools = Pool.all.geocoded
@@ -52,6 +52,6 @@ class PoolsController < ApplicationController
   end
 
   def pool_params
-    params.require(:pool).permit(:name, :location, :description, :capacity, :price, :has_lifeguard, :children_friendly, :jacuzzi_section, :climatization, :pool_side, :has_floats, :towels_include, :pet_friendly, :salted_water, :includes_bar, photos: [])
+    params.require(:pool).permit(:name, :location, :city, :description, :capacity, :price, :has_lifeguard, :children_friendly, :jacuzzi_section, :climatization, :pool_side, :has_floats, :towels_include, :pet_friendly, :salted_water, :includes_bar, photos: [])
   end
 end
